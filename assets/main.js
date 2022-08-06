@@ -14,6 +14,8 @@ var endPoint = "https://api.openweathermap.org/data/2.5/onecall?";
 
 var nameCity = "madrid";
 
+function searchCityWeatherAPI() {}
+
 var searchCity =
   "https://api.openweathermap.org/data/2.5/weather?q=" +
   nameCity +
@@ -23,10 +25,10 @@ console.log(searchCity);
 
 // //on click fetch request works, Json data returned to console log.
 
-// btn.onclick = () => {
-//   fetch(url)
-//     .then((res) => res.json())
-//     .then((data) => {
-//       addData(data);
-//     });
-// };
+btn.onclick = () => {
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      addData(data);
+    });
+};
