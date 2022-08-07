@@ -7,6 +7,7 @@ var cityName = document.getElementsByClassName("user-input").value;
 var cityNameSearch =
   "https://api.openweathermap.org/data/2.5/forecast?appid=cd8545bb68e1aeb655a53433b147eb74&units=imperial&q=" +
   cityName;
+var temp = document.getElementById("temp");
 
 // let userInputValue = document.querySelector(".user-input").value;
 
@@ -32,7 +33,12 @@ function searchMyCity() {
     cityName;
   fetch(cityNameSearch)
     .then((response) => response.json())
-    .then((data) => console.log(data)document.querySelector(".temp").innerHTML = "Temperature = " + data.main.temp);
+    .then((data) => {
+      console.log(data);
+
+      temp.innerHTML = "Temperature = " + data.list[0].main.temp;
+      console.log(temp);
+    });
 }
 
 btn.addEventListener("click", searchMyCity);
