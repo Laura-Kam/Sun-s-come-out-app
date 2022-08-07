@@ -30,12 +30,12 @@ function searchMyCity() {
   var cityNameSearch =
     "https://api.openweathermap.org/data/2.5/forecast?appid=cd8545bb68e1aeb655a53433b147eb74&units=imperial&q=" +
     cityName;
-    fetch(cityNameSearch)
-    .then((response.json) =>)
-  console.log(cityNameSearch);
+  fetch(cityNameSearch)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 }
 
-btn.addEventListener("click", searchMyCity);
+btn.addEventListener("click", searchMyCity());
 
 // function searchMyCity() {
 //   var cityName = document.getElementsByClassName(user - input).value;
