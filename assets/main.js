@@ -32,8 +32,7 @@ function searchMyCity() {
     cityName;
   fetch(cityNameSearch)
     .then((response) => response.json())
-    .then((data) => console.log(data));
-  document.querySelector(".temp").innerHTML = "Temperature = " + data.main.temp;
+    .then((data) => console.log(data)document.querySelector(".temp").innerHTML = "Temperature = " + data.main.temp);
 }
 
 btn.addEventListener("click", searchMyCity);
