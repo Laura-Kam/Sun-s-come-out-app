@@ -3,7 +3,12 @@
 const btn = document.querySelector(".btn");
 const output = document.querySelector(".main-info-card");
 let userInput = document.querySelector(".user-input");
-let userInputValue = document.querySelector(".user-input").value;
+var cityName = document.getElementsByClassName("user-input").value;
+var cityNameSearch =
+  "https://api.openweathermap.org/data/2.5/forecast?appid=cd8545bb68e1aeb655a53433b147eb74&units=imperial&q=" +
+  cityName;
+
+// let userInputValue = document.querySelector(".user-input").value;
 
 // searching for city name using concat.
 
@@ -13,18 +18,37 @@ const APIkey = "cd8545bb68e1aeb655a53433b147eb74";
 var endPoint = "https://api.openweathermap.org/data/2.5/onecall?";
 
 //save to local storage.
-function searchMyCity() {
-  var cityName = document.getElementsByClassName(user - input).value;
-  var searchCity =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    nameCity +
-    "&appid=" +
-    APIkey;
-  fetch(searchCity)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
-  localStorage.setItem(searchMyCity);
+
+function saveLocally() {
+  console.log("function-ran");
 }
+
+btn.addEventListener("click", saveLocally);
+
+function searchMyCity() {
+  var cityName = document.getElementsByClassName("user-input").value;
+  var cityNameSearch =
+    "https://api.openweathermap.org/data/2.5/forecast?appid=cd8545bb68e1aeb655a53433b147eb74&units=imperial&q=" +
+    cityName;
+    fetch(cityNameSearch)
+    .then((response.json) =>)
+  console.log(cityNameSearch);
+}
+
+btn.addEventListener("click", searchMyCity);
+
+// function searchMyCity() {
+//   var cityName = document.getElementsByClassName(user - input).value;
+//   var searchCity =
+//     "https://api.openweathermap.org/data/2.5/weather?q=" +
+//     nameCity +
+//     "&appid=" +
+//     APIkey;
+//   fetch(searchCity)
+//     .then((response) => response.json())
+//     .then((data) => console.log(data));
+//   localStorage.setItem(searchMyCity);
+// }
 //gets API temperature
 
 function getAPITemperature() {
