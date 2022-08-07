@@ -26,7 +26,7 @@ function saveLocally() {
 btn.addEventListener("click", saveLocally);
 
 function searchMyCity() {
-  var cityName = document.getElementsByClassName("user-input").value;
+  var cityName = document.getElementById("city").value;
   var cityNameSearch =
     "https://api.openweathermap.org/data/2.5/forecast?appid=cd8545bb68e1aeb655a53433b147eb74&units=imperial&q=" +
     cityName;
@@ -35,20 +35,8 @@ function searchMyCity() {
     .then((data) => console.log(data));
 }
 
-btn.addEventListener("click", searchMyCity());
+btn.addEventListener("click", searchMyCity);
 
-// function searchMyCity() {
-//   var cityName = document.getElementsByClassName(user - input).value;
-//   var searchCity =
-//     "https://api.openweathermap.org/data/2.5/weather?q=" +
-//     nameCity +
-//     "&appid=" +
-//     APIkey;
-//   fetch(searchCity)
-//     .then((response) => response.json())
-//     .then((data) => console.log(data));
-//   localStorage.setItem(searchMyCity);
-// }
 //gets API temperature
 
 function getAPITemperature() {
