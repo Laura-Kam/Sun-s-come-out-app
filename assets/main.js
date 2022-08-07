@@ -33,97 +33,98 @@ function searchMyCity() {
   fetch(cityNameSearch)
     .then((response) => response.json())
     .then((data) => console.log(data));
+  document.querySelector(".temp").innerHTML = "Temperature = " + data.main.temp;
 }
 
 btn.addEventListener("click", searchMyCity);
 
 //gets API temperature
 
-function getAPITemperature() {
-  fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
-  )
-    .then((response) => {
-      if (!response.ok) {
-        console.log("error");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data.main.temp);
-      document.querySelector(".temp").innerHTML =
-        "Temperature = " + data.main.temp;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
-getAPITemperature();
+// function getAPITemperature() {
+//   fetch(
+//     "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
+//   )
+//     .then((response) => {
+//       if (!response.ok) {
+//         console.log("error");
+//       }
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data.main.temp);
+//       document.querySelector(".temp").innerHTML =
+//         "Temperature = " + data.main.temp;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
+// getAPITemperature();
 
-function getAPIWind() {
-  fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
-  )
-    .then((response) => {
-      if (!response.ok) {
-        console.log("error");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data.wind.speed);
-      document.querySelector(".wind").innerHTML = "Wind = " + data.wind.speed;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
+// function getAPIWind() {
+//   fetch(
+//     "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
+//   )
+//     .then((response) => {
+//       if (!response.ok) {
+//         console.log("error");
+//       }
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data.wind.speed);
+//       document.querySelector(".wind").innerHTML = "Wind = " + data.wind.speed;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
 
-getAPIWind();
+// getAPIWind();
 
-function getAPIUvi() {
-  fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
-  )
-    .then((response) => {
-      if (!response.ok) {
-        console.log("error");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data.main);
-      document.querySelector(".uvi").innerHTML =
-        "UVI = " + data.main.wind_speed;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
+// function getAPIUvi() {
+//   fetch(
+//     "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
+//   )
+//     .then((response) => {
+//       if (!response.ok) {
+//         console.log("error");
+//       }
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data.main);
+//       document.querySelector(".uvi").innerHTML =
+//         "UVI = " + data.main.wind_speed;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
 
-getAPIUvi();
+// getAPIUvi();
 
-function getHumidity() {
-  fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
-  )
-    .then((response) => {
-      if (!response.ok) {
-        console.log("error");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data.main);
-      document.querySelector(".humidity").innerHTML =
-        "Humidity = " + data.main.humidity;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
+// function getHumidity() {
+//   fetch(
+//     "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
+//   )
+//     .then((response) => {
+//       if (!response.ok) {
+//         console.log("error");
+//       }
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data.main);
+//       document.querySelector(".humidity").innerHTML =
+//         "Humidity = " + data.main.humidity;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
 
-getHumidity();
+// getHumidity();
 
 //get
 
