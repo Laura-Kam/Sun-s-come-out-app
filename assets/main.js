@@ -75,11 +75,20 @@ function get5DayForecast() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-
+      for (i = 0; i < 4; i++) {
+        document.getElementById("day-" + (i + 1) + "-date").innerHTML =
+          "" + data.list[i].dt_txt;
+      }
       for (i = 0; i < 4; i++) {
         document.getElementById("day-" + (i + 1) + "-temp").innerHTML =
           "Temperature: " + data.list[i].main.temp;
       }
+      // for (i = 0; i < 4; i++) {
+      //   document.getElementById("day-" + (i + 1) + "-icon").src =
+      //     "http://openweathermap.org/img/wn/" +
+      //     data.list[i].weather[0].icon +
+      //     ".png";
+      // }
       for (i = 0; i < 4; i++) {
         document.getElementById("day-" + (i + 1) + "-wind").innerHTML =
           "Wind: " + data.list[i].wind.speed;
