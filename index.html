@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./assets/style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Sun's come out APP</title>
   </head>
   <body>
@@ -54,9 +54,9 @@
           </div>
         </div>
         <!--main weather display-->
-        <div class="card-col-lg-10">
+        <div class="card-col-lg-8">
           <div class="card">
-            <div class="main-info-card card-body">
+            <div class="main-info-card">
               <h3 class="card-title">Madrid</h3>
               <h3 id="currentDay">(5/08/2022)</h3>
               <h6 id="temp">Temperature</h6>
@@ -69,12 +69,12 @@
       </div>
       <!--end of main weather display-->
       <!--past weather smaller card display-->
-      <div class="col-lg-2">
+      <div class="col-lg-2 card-color">
         <div class="card">
           <div class="card-body">
             <h3 class="card-title date-class" id="day-1-date">(5/08/2022)</h3>
             <h6 id="day-1-temp" class="temp-class">Temperature</h6>
-            <h6 id="day-1-icon" class="icon-class">Icon</h6>
+            <img id="day-1-icon" class="icon-class" />
             <h6 id="day-1-wind" class="wind-class">Wind</h6>
             <h6 id="day-1-humidity" class="humidity-class">Humidity</h6>
             <h6 id="day-1-uv" class="uv-class">UV Index</h6>
@@ -86,7 +86,7 @@
           <div class="card-body">
             <h3 class="card-title date-class" id="day-2-date">(5/08/2022)</h3>
             <h6 id="day-2-temp" class="temp-class">Temperature</h6>
-            <h6 id="day-2-icon" class="icon-class">Icon</h6>
+            <img id="day-2-icon" class="icon-class" />
             <h6 id="day-2-wind" class="wind-class">Wind</h6>
             <h6 id="day-2-humidity" class="humidity-class">Humidity</h6>
             <h6 id="day-2-uv" class="uv-class">UV Index</h6>
@@ -98,7 +98,7 @@
           <div class="card-body">
             <h3 class="card-title date-class" id="day-3-date">(5/08/2022)</h3>
             <h6 id="day-3-temp" class="temp-class">Temperature</h6>
-            <h6 id="day-3-icon" class="icon-class">Icon</h6>
+            <img id="day-3-icon" class="icon-class" />
             <h6 id="day-3-wind" class="wind-class">Wind</h6>
             <h6 id="day-3-humidity" class="humidity-class">Humidity</h6>
             <h6 id="day-3-uv" class="uv-class">UV Index</h6>
@@ -110,10 +110,22 @@
           <div class="card-body">
             <h3 class="card-title date-class" id="day-4-date">(5/08/2022)</h3>
             <h6 id="day-4-temp" class="temp-class">Temperature</h6>
-            <h6 id="day-4-icon" class="icon-class">Icon</h6>
+            <img id="day-4-icon" class="icon-class" />
             <h6 id="day-4-wind" class="wind-class">Wind</h6>
             <h6 id="day-4-humidity" class="humidity-class">Humidity</h6>
             <h6 id="day-4-uv" class="uv-class">UV Index</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title date-class" id="day-5-date">(5/08/2022)</h3>
+            <h6 id="day-5-temp" class="temp-class">Temperature</h6>
+            <img id="day-5-icon" class="icon-class" />
+            <h6 id="day-5-wind" class="wind-class">Wind</h6>
+            <h6 id="day-5-humidity" class="humidity-class">Humidity</h6>
+            <h6 id="day-5-uv" class="uv-class">UV Index</h6>
           </div>
         </div>
       </div>

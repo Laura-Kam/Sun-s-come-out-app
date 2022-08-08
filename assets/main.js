@@ -52,10 +52,10 @@ function searchMyCity() {
     .then((data) => {
       console.log(data);
 
-      temp.innerHTML = "Temperature = " + data.list[0].main.temp + "°F";
+      temp.innerHTML = " Temperature = " + data.list[0].main.temp + "°F";
       console.log(temp);
-      wind.innerHTML = "Wind = " + data.list[0].wind.speed + " MPH";
-      humidity.innerHTML = "humidity = " + data.list[0].main.humidity + "%";
+      wind.innerHTML = " Wind = " + data.list[0].wind.speed + " MPH";
+      humidity.innerHTML = " humidity = " + data.list[0].main.humidity + "%";
     });
 }
 
@@ -75,27 +75,25 @@ function get5DayForecast() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      for (i = 0; i < 4; i++) {
-        document.getElementById("day-" + (i + 1) + "-date").innerHTML =
-          "" + data.list[i].dt_txt;
-      }
-      for (i = 0; i < 4; i++) {
+      for (i = 0; i < 5; i++) {
         document.getElementById("day-" + (i + 1) + "-temp").innerHTML =
-          "Temperature: " + data.list[i].main.temp;
+          " Temperature: " + data.list[i].main.temp;
       }
-      // for (i = 0; i < 4; i++) {
-      //   document.getElementById("day-" + (i + 1) + "-icon").src =
-      //     "http://openweathermap.org/img/wn/" +
-      //     data.list[i].weather[0].icon +
-      //     ".png";
-      // }
-      for (i = 0; i < 4; i++) {
+      for (i = 0; i < 5; i++) {
+        document.getElementById("day-" + (i + 1) + "-icon").src =
+          "https://openweathermap.org/img/wn/" +
+          data.list[i].weather[0].icon +
+          ".png";
+        console.log(data.list[i].weather[0].icon);
+      }
+
+      for (i = 0; i < 5; i++) {
         document.getElementById("day-" + (i + 1) + "-wind").innerHTML =
-          "Wind: " + data.list[i].wind.speed;
+          " Wind: " + data.list[i].wind.speed;
       }
-      for (i = 0; i < 4; i++) {
+      for (i = 0; i < 5; i++) {
         document.getElementById("day-" + (i + 1) + "-humidity").innerHTML =
-          "Humidity: " + data.list[i].main.humidity;
+          " Humidity: " + data.list[i].main.humidity;
       }
     });
 }
