@@ -76,15 +76,15 @@ function get5DayForecast() {
     .then((data) => {
       console.log(data);
 
-      for (i = 0; i < 5; i++) {
+      for (i = 0; i < 4; i++) {
         document.getElementById("day-" + (i + 1) + "-temp").innerHTML =
           "Temperature: " + data.list[i].main.temp;
       }
-      for (i = 0; i < 5; i++) {
+      for (i = 0; i < 4; i++) {
         document.getElementById("day-" + (i + 1) + "-wind").innerHTML =
           "Wind: " + data.list[i].wind.speed;
       }
-      for (i = 0; i < 5; i++) {
+      for (i = 0; i < 4; i++) {
         document.getElementById("day-" + (i + 1) + "-humidity").innerHTML =
           "Humidity: " + data.list[i].main.humidity;
       }
