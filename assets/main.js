@@ -1,4 +1,4 @@
-//time display using moment.js
+//time display using moment.js for current day.
 var today = moment();
 $("#currentDay").text(today.format("(DD-MM-YYYY)"));
 
@@ -7,6 +7,7 @@ const btn = document.querySelector(".btn");
 const output = document.querySelector(".main-info-card");
 let userInput = document.querySelector(".user-input");
 var cityName = document.getElementsByClassName("user-input").value;
+var searchHistoryArray = [];
 var cityNameSearch =
   "https://api.openweathermap.org/data/2.5/forecast?appid=cd8545bb68e1aeb655a53433b147eb74&units=imperial&q=" +
   cityName;
@@ -22,28 +23,25 @@ var search5DayForecast =
   APIkey +
   "&units=metric";
 
-//   //eg https://api.openweathermap.org/data/2.5/forecast?q=birmingham&cnt=5&appid=cd8545bb68e1aeb655a53433b147eb74&units=metric#
+// save to local storage and attempt to save and print search history to page.
 
-// // let userInputValue = document.querySelector(".user-input").value;
-
-// // searching for city name using concat.
-
-// const url =
-//   "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=cd8545bb68e1aeb655a53433b147eb74";
-// var endPoint = "https://api.openweathermap.org/data/2.5/onecall?";
-
-// //save to local storage.
-
-function saveLocally() {
-  console.log("function-ran");
+function saveLocally(citySearched) {
+  if (searchHistoryArray.indexOf(citySearched) !== -1) {
+    return;
+  }
+  console.log(citySearched);
+  searchHistoryArray.push(citySearched);
+  localStorage.setItem("search-history", JSON.stringify(searchHistoryArray));
 }
 
 btn.addEventListener("click", saveLocally);
 
 //fetch data- current conditions- prints to main card.
 
-function searchMyCity() {
+function searchMyCity(event) {
+  event.preventDefault();
   var cityName = document.getElementById("city").value;
+  console.log(cityName);
   var cityNameSearch =
     "https://api.openweathermap.org/data/2.5/forecast?appid=cd8545bb68e1aeb655a53433b147eb74&units=imperial&q=" +
     cityName;
@@ -51,6 +49,7 @@ function searchMyCity() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      saveLocally(data.city.name);
 
       temp.innerHTML = " Temperature = " + data.list[0].main.temp + "°F";
       console.log(temp);
@@ -76,6 +75,11 @@ function get5DayForecast() {
     .then((data) => {
       console.log(data);
       for (i = 0; i < 5; i++) {
+        var date = moment.unix(data.list[i].dt).format("D/M/YYYY");
+        document.getElementById("day-" + (i + 1) + "-date").innerHTML =
+          "Date: " + date;
+      }
+      for (i = 0; i < 5; i++) {
         document.getElementById("day-" + (i + 1) + "-temp").innerHTML =
           " Temperature: " + data.list[i].main.temp;
       }
@@ -99,112 +103,3 @@ function get5DayForecast() {
 }
 
 btn.addEventListener("click", get5DayForecast);
-
-//gets API temperature
-
-// function getAPITemperature() {
-//   fetch(
-//     "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
-//   )
-//     .then((response) => {
-//       if (!response.ok) {
-//         console.log("error");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data.main.temp);
-//       document.querySelector(".temp").innerHTML =
-//         "Temperature = " + data.main.temp;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// }
-// getAPITemperature();
-
-// function getAPIWind() {
-//   fetch(
-//     "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
-//   )
-//     .then((response) => {
-//       if (!response.ok) {
-//         console.log("error");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data.wind.speed);
-//       document.querySelector(".wind").innerHTML = "Wind = " + data.wind.speed;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// }
-
-// getAPIWind();
-
-// function getAPIUvi() {
-//   fetch(
-//     "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
-//   )
-//     .then((response) => {
-//       if (!response.ok) {
-//         console.log("error");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data.main);
-//       document.querySelector(".uvi").innerHTML =
-//         "UVI = " + data.main.wind_speed;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// }
-
-// getAPIUvi();
-
-// function getHumidity() {
-//   fetch(
-//     "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=cd8545bb68e1aeb655a53433b147eb74"
-//   )
-//     .then((response) => {
-//       if (!response.ok) {
-//         console.log("error");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data.main);
-//       document.querySelector(".humidity").innerHTML =
-//         "Humidity = " + data.main.humidity;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// }
-
-// getHumidity();
-
-//get
-
-// var nameCity = "madrid";
-
-// var searchCity =
-//   "https://api.openweathermap.org/data/2.5/weather?q=" +
-//   nameCity +
-//   "&appid=" +
-//   APIkey;
-// console.log(searchCity);
-
-// //on click fetch request works, Json data returned to console log.
-
-// btn.onclick = () => {
-//   fetch(url)
-//     .then((res) => res.json())
-//     .then((data) => {
-//       console.log(data);
-//     });
-// };

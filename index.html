@@ -23,34 +23,52 @@
       </div>
       <!--weather row end-->
       <!--search bar and search button-->
-      <div class="input-group mb-2 md-2">
-        <h2>Search for a city</h2>
-        <input
-          type="text"
-          class="user-input"
-          id="city"
-          placeholder="location"
-          aria-label="Example text with button addon"
-          aria-describedby="button-addon1"
-        />
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary md-3" type="button">
-            Search
-          </button>
+      <form>
+        <div class="input-group mb-2 md-2">
+          <h2>Search for a city</h2>
+          <input
+            type="text"
+            class="user-input"
+            id="city"
+            placeholder="location"
+            aria-label="Example text with button addon"
+            aria-describedby="button-addon1"
+          />
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary md-3" type="submit">
+              Search
+            </button>
+          </div>
         </div>
-      </div>
-
+      </form>
       <div class="row">
         <div class="col-lg-2">
           <div class="btn-group-vertical">
-            <button type="button" class="btn btn-primary">Madrid</button>
-            <button type="button" class="btn btn-primary">San Francisco</button>
-            <button type="button" class="btn btn-primary">Barcelona</button>
-            <button type="button" class="btn btn-primary">Budapest</button>
-            <button type="button" class="btn btn-primary">Prague</button>
-            <button type="button" class="btn btn-primary">London</button>
-            <button type="button" class="btn btn-primary">Zaragoza</button>
-            <button type="button" class="btn btn-primary">Merida</button>
+            <!--buttons for historical search results.-->
+            <button type="button" id="btn-1" class="btn btn-primary">
+              Madrid
+            </button>
+            <button type="button" id="btn-2" class="btn btn-primary">
+              San Francisco
+            </button>
+            <button type="button" id="btn-3" class="btn btn-primary">
+              Barcelona
+            </button>
+            <button type="button" id="btn-4" class="btn btn-primary">
+              Budapest
+            </button>
+            <button type="button" id="btn-5" class="btn btn-primary">
+              Prague
+            </button>
+            <button type="button" id="btn-6" class="btn btn-primary">
+              London
+            </button>
+            <button type="button" id="btn-7" class="btn btn-primary">
+              Zaragoza
+            </button>
+            <button type="button" id="btn-8" class="btn btn-primary">
+              Merida
+            </button>
           </div>
         </div>
         <!--main weather display-->
@@ -131,7 +149,7 @@
       </div>
     </div>
     <!--end of past weather searches, smaller card display-->
-
+    <!--CDN-->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

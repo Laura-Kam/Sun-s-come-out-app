@@ -2,7 +2,7 @@
 
 # Description
 
-- This is a weather app which saves events, and has color-coded events with grey for present, red for past and green for future.
+- This is a weather app which displays current weather conditions, and 5 day weather conditions.
 
 # Link to deployed application
 
@@ -10,17 +10,17 @@
 
 # Link to Git-hub repo.
 
-[Link to repo](https://github.com/Laura-Kam/......)
+[Link to repo](https://github.com/Laura-Kam/Sun-s-come-out-app)
 
 # Screenshot of website:
 
-![Screenshot of website](https://github.com/Laura-Kam/Schedule-my-life/issues/1#issue-1328676482)
+![Screenshot of website](https://github.com/Laura-Kam/Sun-s-come-out-app/issues/1#issue-1335698983)
 
 # bugs
 
-- data was not printing to html
-- date had to be modified.
-  -This issue was resolved.
+- date function through the API not displaying correctly, due to 5 day weather being displayed 4x a day, instead of once daily.
+- UV index only able to be retrieved through using latitude and longtitude instead of 'city' search.
+  -Search results have not yet been able to be saved in the div with buttons.
 
 # Version history
 
@@ -28,6 +28,12 @@
 - 0.2 Fetch function created to link search bar with URL to OpenWeather and to fetch data.
 - 0.3 Added a for loop for 5 day weather forecast.
 - 0.4 link to deployed website added to readme file.
+
+# resources used:
+
+https://www.youtube.com/watch?v=QEu8_5bYm-w
+Ranjan-Beginner's Guide
+Video Title: 5-Days Weather Application using Simple JavaScript | Weather Application
 
 # License
 
