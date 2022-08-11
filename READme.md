@@ -6,7 +6,7 @@
 
 # Link to deployed application
 
-[https://laura-kam.github.io/Schedule-my-life/]()
+[https://laura-kam.github.io/Sun-s-come-out-app/]()
 
 # Link to Git-hub repo.
 
@@ -31,9 +31,10 @@
 
 # resources used:
 
-https://www.youtube.com/watch?v=QEu8_5bYm-w
-Ranjan-Beginner's Guide
-Video Title: 5-Days Weather Application using Simple JavaScript | Weather Application
+- Guidance from:
+  https://www.youtube.com/watch?v=QEu8_5bYm-w
+  Ranjan-Beginner's Guide
+  Video Title: 5-Days Weather Application using Simple JavaScript | Weather Application
 
 # License
 
