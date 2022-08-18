@@ -58,6 +58,7 @@ function getLatLon(event) {
     })
     .then((data) => {
       getWeather(data[0].lat, data[0].lon, data[0].name);
+
       //create button.
       //save to local storage.
     });

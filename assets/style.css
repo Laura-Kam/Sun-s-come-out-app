@@ -1,16 +1,22 @@
 .dashboard-text {
     color:white;
-    background-image: linear-gradient(rgb(102, 146, 227), rgb(64, 0, 255));
+    background-image: linear-gradient(rgb(109, 182, 255), yellow );
     text-align: center;
+    padding: 10px;
+    padding-top: 5px;
 }
 
 .btn {
     background-color: cornflowerblue;
+    color: white;
 }
 
 .card-body {
-    background-color: rgb(36, 97, 132);
+    background-color: rgb(109, 182, 255);
     color:white;
+    border-radius: 5px;
+    padding: 12px;
+    padding-top: 0;
 }
 
 .btn-primary {
