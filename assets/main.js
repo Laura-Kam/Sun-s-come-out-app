@@ -18,7 +18,7 @@ var temp = document.getElementById("temp");
 var wind = document.getElementById("wind");
 var humidity = document.getElementById("humidity");
 var Uvi = document.getElementById("uvi");
-var name = document.getElementById("name");
+let name = document.getElementById("name");
 var currentDay = document.getElementById("currentDay");
 var search5DayForecast =
   "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -75,24 +75,26 @@ function getWeather(lat, lon, name) {
     "&lon=" +
     lon +
     "&exclude=minutely,hourly,alerts&appid=" +
-    APIkey;
+    APIkey +
+    "&units=metric";
   fetch(weather)
     .then((response) => response.json())
     .then((data) => {
       //display weather and forecast
-      displayCurrentWeather(data.current);
+      displayCurrentWeather(data.current, name);
 
       displayForecast(data.daily);
     });
 }
-function displayCurrentWeather(current) {
+function displayCurrentWeather(current, cityName) {
   console.log(current);
   temp.textContent = "Temperature: " + current.temp;
   currentDay.textContent =
     "(" + moment.unix(current.dt).format("D/M/YYYY") + ")";
-  wind.textContent = "Wind" + current.wind;
-  humidity.textContent = "Humidity" + current.humidity;
-  name.textContent = "name: " + current.name;
+  wind.textContent = "Wind " + current.wind_speed;
+  humidity.textContent = "Humidity: " + current.humidity;
+  Uvi.textContent = "Uvi " + current.uvi;
+  document.getElementById("name").innerHTML = cityName;
 
   // document.getElementsByClassName("card-title").textContent = data[0].name;
 }
