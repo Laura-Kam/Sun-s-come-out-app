@@ -103,6 +103,10 @@ https: function displayForecast(fiveDayForecast) {
   console.log(fiveDayForecast);
   for (i = 0; i < 5; i++) {
     console.log(fiveDayForecast[i]);
+
+    document.getElementById(`day-${i}-date`).textContent =
+      "(" + moment.unix(fiveDayForecast[i].dt).format("D/M/YYYY") + ")";
+
     document.getElementById(
       `day-${i}-temp`
     ).textContent = `Temperature: ${fiveDayForecast[i].temp.day}`;
@@ -115,9 +119,9 @@ https: function displayForecast(fiveDayForecast) {
     document.getElementById(
       `day-${i}-uvi`
     ).textContent = `Uvi: ${fiveDayForecast[i].uvi}`;
-    document.getElementById(`day-${i}-uvi`).src =
+    document.getElementById(`day-${i}-icon`).src =
       "http://openweathermap.org/img/wn/" +
-      fiveDayForecast[i].weather.icon +
+      fiveDayForecast[i].weather[0].icon +
       ".png";
     console.log(fiveDayForecast[i].weather.icon);
 
