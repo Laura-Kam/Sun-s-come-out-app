@@ -29,6 +29,7 @@ var search5DayForecast =
 
 var storedValue = [];
 var citiesHistory = [];
+var userInputArray = [];
 
 // save to local storage and attempt to save and print search history to page.
 
@@ -53,6 +54,13 @@ function saveSearchHistory() {
 
 btn.addEventListener("click", saveSearchHistory);
 
+function createArray() {
+  var userInputArray = StoredValue.push(userInput);
+}
+
+btn.addEventListener("click", createArray);
+
+console.log(userInputArray);
 //function- get lat and lon value.
 
 function getLatLon(event) {
@@ -104,10 +112,10 @@ function getWeather(lat, lon, name) {
 }
 function displayCurrentWeather(current, cityName) {
   console.log(current);
-  temp.textContent = "Temperature: " + current.temp;
+  temp.textContent = "Temperature: " + current.temp + "°C";
   currentDay.textContent =
     "(" + moment.unix(current.dt).format("D/M/YYYY") + ")";
-  wind.textContent = "Wind " + current.wind_speed;
+  wind.textContent = "Wind " + current.wind_speed + "MPH";
   humidity.textContent = "Humidity: " + current.humidity;
   Uvi.textContent = "Uvi " + current.uvi;
   document.getElementById("name").innerHTML = cityName;
@@ -127,10 +135,10 @@ https: function displayForecast(fiveDayForecast) {
 
     document.getElementById(
       `day-${i}-temp`
-    ).textContent = `Temperature: ${fiveDayForecast[i].temp.day}`;
+    ).textContent = `Temperature: ${fiveDayForecast[i].temp.day} °C`;
     document.getElementById(
       `day-${i}-wind`
-    ).textContent = `Wind: ${fiveDayForecast[i].wind_speed}`;
+    ).textContent = `Wind: ${fiveDayForecast[i].wind_speed} MPH`;
     document.getElementById(
       `day-${i}-humidity`
     ).textContent = `Humidity: ${fiveDayForecast[i].humidity}`;
