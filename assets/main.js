@@ -27,18 +27,33 @@ var search5DayForecast =
   APIkey +
   "&units=metric&exclude=minutely,hourly";
 
+var storedValue = [];
+var citiesHistory = [];
+
 // save to local storage and attempt to save and print search history to page.
 
-function saveLocally(event) {
-  if (searchHistoryArray.indexOf(citySearched) !== -1) {
-    return;
-  }
-  console.log(event.target);
-  searchHistoryArray.push(citySearched);
-  localStorage.setItem("search-history", JSON.stringify(searchHistoryArray));
-}
+// function saveLocally(event) {
+//   if (searchHistoryArray.indexOf(citySearched) !== -1) {
+//     return;
+//   }
+//   console.log(event.target);
+//   searchHistoryArray.push(citySearched);
+//   localStorage.setItem("search-history", JSON.stringify(searchHistoryArray));
+// }
 
 //--------------------new save name of city in local storage------------------
+
+function saveSearchHistory() {
+  let userInput = document.querySelector(".user-input");
+  localStorage.setItem("cities", userInput.value);
+  storedValue = localStorage.getItem("cities", JSON.stringify(storedValue));
+  citiesHistory = storedValue.push("cities", JSON.stringify(storedValue));
+  // storedValue.push(storedValue);
+}
+
+btn.addEventListener("click", saveSearchHistory);
+
+//function- get lat and lon value.
 
 function getLatLon(event) {
   event.preventDefault();
