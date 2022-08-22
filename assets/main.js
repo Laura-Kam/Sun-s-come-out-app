@@ -44,24 +44,24 @@ var userInputArray = [];
 
 //--------------------new save name of city in local storage------------------
 
-function saveSearchHistory() {
-  let userInput = document.querySelector(".user-input");
-  localStorage.setItem("cities", userInput.value);
-  storedValue = localStorage.getItem("cities", JSON.stringify(storedValue));
-  citiesHistory = storedValue.push("cities", JSON.stringify(storedValue));
+function saveToLocalStorage(ciudadName) {
+  let storedValue = JSON.parse(localStorage.getItem("cities"));
+  if (!storedValue) {
+    storedValue = [];
+  }
+  storedValue.push(ciudadName);
+  localStorage.setItem("cities", JSON.stringify(storedValue));
+  //save lat and lon into local storage, save city as an Object, when load from LS
   // storedValue.push(storedValue);
 }
 
-btn.addEventListener("click", saveSearchHistory);
-
-function createArray() {
-  var userInputArray = StoredValue.push(userInput);
+function loadFromLocalStorage() {
+  let storedValue = JSON.parse(localStorage.getItem("cities"));
+  for (city = 0; city < storedValue.length; city++) {
+    createButton(storedValue[city]);
+    //needs to take in lan and lon, and then getting from LS.
+  }
 }
-
-btn.addEventListener("click", createArray);
-
-console.log(userInputArray);
-//function- get lat and lon value.
 
 function getLatLon(event) {
   event.preventDefault();
@@ -82,9 +82,32 @@ function getLatLon(event) {
     .then((data) => {
       getWeather(data[0].lat, data[0].lon, data[0].name);
 
+      createButton(data[0].name, data[0].lat, data[0].lon);
+      saveToLocalStorage(data[0].name);
+
       //create button.
       //save to local storage.
     });
+}
+
+var buttonList = document.getElementById("button-area");
+
+function createButton(ciudadName, lat, lon) {
+  const newButton = document.createElement("button");
+  newButton.textContent = ciudadName;
+  newButton.dataset.lat = lat;
+  newButton.setAttribute("data-lon", lon);
+  buttonList.appendChild(newButton);
+}
+buttonList.addEventListener("click", getButtonData);
+
+function getButtonData(event) {
+  console.log(event);
+  console.log(event.target);
+  console.log(event.target.textContent);
+  event.target.textContent;
+  // getWeather(lat,lon,event.target.textContent);
+  //get lan and lon from the event.
 }
 
 //new function - get latitude and longtitude values from original API call.
@@ -152,3 +175,4 @@ https: function displayForecast(fiveDayForecast) {
     console.log(fiveDayForecast[i].weather.icon);
   }
 }
+loadFromLocalStorage();
