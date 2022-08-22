@@ -63,9 +63,13 @@ function loadFromLocalStorage() {
   }
 }
 
-function getLatLon(event) {
+function getLatLonFromInputBox(event) {
   event.preventDefault();
   var cityName = document.getElementById("city").value;
+  getLatLon(cityName);
+}
+
+function getLatLon(cityName, calledByButton = false) {
   console.log(cityName);
   var cityNameSearch =
     "https://api.openweathermap.org/geo/1.0/direct?q=" +
@@ -82,9 +86,10 @@ function getLatLon(event) {
     .then((data) => {
       getWeather(data[0].lat, data[0].lon, data[0].name);
 
-      createButton(data[0].name, data[0].lat, data[0].lon);
-      saveToLocalStorage(data[0].name);
-
+      if (!calledByButton) {
+        createButton(data[0].name, data[0].lat, data[0].lon);
+        saveToLocalStorage(data[0].name);
+      }
       //create button.
       //save to local storage.
     });
@@ -102,17 +107,16 @@ function createButton(ciudadName, lat, lon) {
 buttonList.addEventListener("click", getButtonData);
 
 function getButtonData(event) {
-  console.log(event);
-  console.log(event.target);
-  console.log(event.target.textContent);
-  event.target.textContent;
+  var cityName = event.target.textContent;
+  getLatLon(cityName, true);
+
   // getWeather(lat,lon,event.target.textContent);
   //get lan and lon from the event.
 }
 
 //new function - get latitude and longtitude values from original API call.
 
-btn.addEventListener("click", getLatLon);
+btn.addEventListener("click", getLatLonFromInputBox);
 
 function getWeather(lat, lon, name) {
   console.log(lat, lon, name);
