@@ -6,6 +6,13 @@
     padding-top: 5px;
 }
 
+.card {
+    display: flex;
+}
+
+.row {
+    margin: 0px;
+}
 
 .btn {
     background-color: cornflowerblue;
@@ -18,6 +25,7 @@
     border-radius: 5px;
     padding: 12px;
     padding-top: 0;
+    margin: 10px;
 }
 
 .btn-primary {
