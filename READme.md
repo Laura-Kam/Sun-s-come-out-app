@@ -1,4 +1,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Technologies-used](https://img.shields.io/badge/-Git-F05032?logo=Git&logoColor=white)
+![Technologies-used](https://img.shields.io/badge/-JavaScript-007396?logo=JavaScript&logoColor=white)
+![Technologies-used](https://img.shields.io/badge/-HTML5-E34F26?logo=HTML5&logoColor=white)
+![Technologies-used](https://img.shields.io/badge/-Third--Party%20API-brightgreen)
 
 ## Sun's Come Out App
 
@@ -33,11 +37,6 @@
 - Pull the repo from Github. Work on it locally and push it up to be accepted onto the main branch.
 
 # Technologies Used
-
-![Technologies-used](https://img.shields.io/badge/-Git-F05032?logo=Git&logoColor=white)
-![Technologies-used](https://img.shields.io/badge/-JavaScript-007396?logo=JavaScript&logoColor=white)
-![Technologies-used](https://img.shields.io/badge/-HTML5-E34F26?logo=HTML5&logoColor=white)
-![Technologies-used](https://img.shields.io/badge/-Third--Party%20API-brightgreen)
 
 - Third Party API, Open Weather Map.
 - Javascript
